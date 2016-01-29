@@ -43,18 +43,18 @@ public class RequestCreater {
         StringBuilder sb= new StringBuilder();
 
         for (String key:params.keySet()) {
-            String value= null;
             try {
-                value = URLEncoder.encode(params.get(key), "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
 
-            if(sb.length() > 0) {
+                String value= null;
+                value = URLEncoder.encode(params.get(key), "UTF-8");
+            if(sb.length() > 0){
                 sb.append("&");
             }
 
             sb.append(key+"="+value);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
         }
 
         return sb.toString();
